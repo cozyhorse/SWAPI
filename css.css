@@ -1,0 +1,222 @@
+*{ 
+    margin: 0;
+    padding: 0; 
+    box-sizing:border-box; 
+}
+
+body{
+    background-color: rgb(39, 39, 39);
+}
+
+li{
+    list-style: none;
+    line-height: 2.5rem;
+    font-size: 1.3rem;
+}
+
+
+
+.wrapper{
+    width: 1440px;
+    height: 1024px ;
+    background-color: rgba(66, 66, 66, 1);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.headerbox{
+    background-image: url(./assets/kyloren.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: 1/1/5/-1;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+
+}
+
+.header-h2{
+    height: 12.5rem;
+    width: 25rem;
+    font-size: 4rem;
+    line-height: 4.375rem;
+    color: rgba(255, 214, 0, 1);
+
+}
+
+.characterbox{
+    background-color: rgb(161, 163, 165);
+    grid-area: 4/2/11/5;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 30px;
+    border-top-left-radius:  30px;
+    overflow: hidden;
+    
+}
+
+.character-h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(67, 65, 65);
+    height: 10%;
+    box-shadow: 0px 10px 5px 3px rgba(0,0,0,0.45);
+    z-index: 1;
+    color: rgba(255, 214, 0, 1);
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem; 
+
+    
+}
+
+.characterlist{
+    height: 80%;
+    background-color:rgb(146, 151, 151);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.characterlist > li {
+    flex: 1 1 300px;
+    align-self: center;
+    
+}
+
+.loader--characters{
+    margin: auto;
+}
+
+.characterbtn{
+    border: none;
+    background: none;
+    font-size: larger;
+    text-align: start;
+    width: 100%;
+    height: 100%;
+}
+
+.active{
+    font-weight: 560;
+    text-indent: 2rem;
+}
+
+.active::after{
+    content: " >";
+}
+
+.character-li:nth-child(odd){
+    background-color:rgba(142, 142, 142, 1) ;
+}
+.character-li:nth-child(even){
+    background-color: rgba(225, 222, 222, 1);
+}
+
+.character-nav{
+    height:10%;
+    text-align: center;
+}
+
+
+
+.detailsbox{
+    grid-area: 4/6/11/9;
+    border-top-right-radius: 30px ;
+    border-top-left-radius: 30px ;
+    overflow: hidden;
+}
+
+.detailsbox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.details-h2{
+    background-color:rgba(116, 134, 135, 1);
+    height: 10%;
+    text-align: center;  
+    color: rgba(255, 214, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;  
+    
+}
+
+.details-infobox{
+    background-color: rgba(196, 196, 196, 1);
+    height: 45%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.details-info > li{
+    line-height: 2rem;
+
+
+}
+
+.details-planetbox{
+    background-color:rgba(142, 142, 142, 1);
+    height: 45%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.planet-info > li {
+    line-height: 2rem;
+}
+
+
+.character-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.character-nav > span {
+    font-size: 1.4rem;
+
+}
+
+.character-nav > button {
+    background: none;
+    border: none;
+}
+
+.nextbtn,
+.prevbtn{
+    font-size: 1.9rem;
+}
+
+
+
+
+
+.loader {
+    align-self: center;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
