@@ -28,11 +28,13 @@ const getCharacterList = async () => {
   //key is the index of the array and item is the element at the index
   for (const [index, item] of data.results.entries()) {
     pageDisableCheck()
-
+    //create a button element
     const button = document.createElement("button");
+    //set button element name to name found in array (data.results) with item.name and add class characterbtn
     button.textContent = item.name;
     button.classList.add("characterbtn");
 
+    //Set EventListner on created buttons
     button.addEventListener("click", (event) => {
 
       const activeBtn = document.querySelector(".characterbtn.active");
@@ -51,7 +53,8 @@ const getCharacterList = async () => {
       planetLoader.classList.add("loader");
       infoLoader.classList.add("loader");
 
-      getCharacter(index + 1);
+      //Click on the
+      getCharacter(index);
 
     });
 
@@ -80,20 +83,20 @@ const getCharacter = async (charIndex) => {
       infoLoader.classList.remove("loader")
     }
 
-    detailsname.textContent = data.results[charIndex -1].name
+    detailsname.textContent = data.results[charIndex].name
         //printing info based on the index of the data.results array
-        createOrUpdate(detailsinfo, "Height", data.results[charIndex -1].height )
-        createOrUpdate(detailsinfo, "Mass", data.results[charIndex -1].mass )
-        createOrUpdate(detailsinfo, "Hair Color", data.results[charIndex -1].hair_color )
-        createOrUpdate(detailsinfo, "Skin Color", data.results[charIndex -1].skin_color )
-        createOrUpdate(detailsinfo, "Eye Color", data.results[charIndex -1].eye_color )
-        createOrUpdate(detailsinfo, "Birth Year", data.results[charIndex -1].birth_year )
-        createOrUpdate(detailsinfo, "Gender", data.results[charIndex -1].gender )
+        createOrUpdate(detailsinfo, "Height", data.results[charIndex].height )
+        createOrUpdate(detailsinfo, "Mass", data.results[charIndex].mass )
+        createOrUpdate(detailsinfo, "Hair Color", data.results[charIndex].hair_color )
+        createOrUpdate(detailsinfo, "Skin Color", data.results[charIndex].skin_color )
+        createOrUpdate(detailsinfo, "Eye Color", data.results[charIndex].eye_color )
+        createOrUpdate(detailsinfo, "Birth Year", data.results[charIndex].birth_year )
+        createOrUpdate(detailsinfo, "Gender", data.results[charIndex].gender )
 
 
 
     //fetch clicked characters homeworld
-    const getHomeworld = await fetch(data.results[charIndex -1].homeworld)
+    const getHomeworld = await fetch(data.results[charIndex].homeworld)
     const worldData = await getHomeworld.json()
     console.log("World array/info to print", worldData);
 
@@ -116,9 +119,11 @@ const getCharacter = async (charIndex) => {
 //next page button
 nextBtn.addEventListener("click", async () => {
   characterlist.innerHTML = "";
+  //add loader
   loaderdiv.classList.add("loader");
   loaderdiv.classList.add("loader--characters");
   characterlist.append(loaderdiv);
+
   pagenumber++;
   const nextpage = await fetch(`https://swapi.dev/api/people/?page=${pagenumber}`);
   const nextPageData = await nextpage.json();
@@ -133,9 +138,11 @@ nextBtn.addEventListener("click", async () => {
 //Prev page button
 prevBtn.addEventListener("click", async () => {
   characterlist.innerHTML = "";
+  //add loader
   loaderdiv.classList.add("loader");
   loaderdiv.classList.add("loader--characters");
   characterlist.append(loaderdiv);
+
   pagenumber--;
   const prevPage = await fetch(`https://swapi.dev/api/people/?page=${pagenumber}`);
   const prevPageData = await prevPage.json();
