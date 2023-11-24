@@ -155,6 +155,7 @@ prevBtn.addEventListener("click", async () => {
 });
 
 //Disable button at page 1 or page 8
+//finns en bugg här, går fortfarande att trycka på pilen efter den är disabled
 const pageDisableCheck = () => {
   const next = document.querySelector(".next");
   const prev = document.querySelector(".prev");
