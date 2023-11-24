@@ -75,6 +75,7 @@ const getCharacterList = async () => {
 
 //Fetch and print character infos function
 const getCharacter = async (charIndex) => {
+  //hämtar samma sida som i listan över karaktärer
     const response = await fetch(`https://swapi.dev/api/people/?page=${pagenumber}`)
     const data = await response.json()
     console.log("Character Data", data.results);
@@ -96,7 +97,7 @@ const getCharacter = async (charIndex) => {
 
 
     //fetch clicked characters homeworld
-    const getHomeworld = await fetch(data.results[charIndex].homeworld)
+    const getHomeworld = await fetch(data.results[charIndex].homeworld)//Or species, vehicles, ect..
     const worldData = await getHomeworld.json()
     console.log("World array/info to print", worldData);
 
@@ -176,7 +177,7 @@ const pageDisableCheck = () => {
 
 
 
-//Current append and update function
+//Current append and update function (ul, label, content)
 const createOrUpdate = (element, label, value) => {
   let item = document.createElement("li");
   // Loop through child nodes in "element" to find an existing list item with the same label
